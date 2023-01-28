@@ -3,22 +3,12 @@
   "version": "1.0.0",
   "description": "This is the server side of the V2 Games Organizer",
   "main": "index.js",
-  "directories": {
-    "lib": "lib"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/LewisGraves/veetoo-go-ss.git"
-  },
-  "author": "",
+  "author": "Lewis-Graves",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/LewisGraves/veetoo-go-ss/issues"
-  },
-  "homepage": "https://github.com/LewisGraves/veetoo-go-ss#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",
