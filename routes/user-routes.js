@@ -1,20 +1,21 @@
+//require express and bcrypt
 const express = require('express')
 const bcrypt = require('bcrypt')
 
+//create router
 const router = express.Router()
 
+// require the User model and requireToken
 const User = require('../models/user')
 const { createUserToken } = require('../config/auth')
 
-
+// SIGN UP
+// POST /sign-up
 router.post('/sign-up', (req, res, next) => {
 	bcrypt
 		.hash(req.body.credentials.password, 10)
 		// return a new object with the email and hashed password
 		.then((hash) =>
-			// when returning an object with fat arrow syntax, we
-			// need to wrap the object in parentheses so JS doesn't
-			// read the object curly braces as the function block
 			({
 				email: req.body.credentials.email,
 				password: hash,
@@ -42,4 +43,5 @@ router.post('/sign-in', (req, res, next) => {
 		.catch(next)
 });
 
+//export router
 module.exports = router

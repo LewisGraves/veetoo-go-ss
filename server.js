@@ -1,24 +1,20 @@
-// require express
+// require express mongoose cors and the URI
 const express = require('express')
-// require mongoose
 const mongoose = require('mongoose')
-// require cors
 const cors = require('cors')
-// require the URI
 const db = require('./config/db')
 
-// require the character routes
-const characterRoutes = require('./routes/character-routes')
+// require the routes
 const requestLogger = require('./lib/request-logger')
-const characterSeed = require('./lib/character-seed')
-const campaignRoutes = require('./routes/campaign-routes')
-const noteRoutes = require('./routes/note-routes')
+const consoleSeed = require('./lib/console-seed')
+const consoleRoutes = require('./routes/console-routes')
+const gameRoutes = require('./routes/game-routes')
 const userRoutes = require('./routes/user-routes')
 
-// 'Magic numbers' should always be declared at the top of the file and named in all caps
+// declare the port
 const PORT = 8000
 
-// To avoid the deprecation warning set `strictQuery` to true
+// set mongoose to use the global promise library
 mongoose.set('strictQuery', true)
 
 // Create connection with the URI from config/db.js
@@ -38,10 +34,9 @@ app.use(express.json())
 app.use(requestLogger)
 
 // Pass the routes to `app.use` for Express to use them
-app.use(characterRoutes)
-app.use('/seed', characterSeed)
-app.use(campaignRoutes)
-app.use(noteRoutes)
+app.use('/seed', consoleSeed)
+app.use(consoleRoutes)
+app.use(gameRoutes)
 app.use(userRoutes)
 
 // Listening on PORT 8000

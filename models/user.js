@@ -1,5 +1,7 @@
+//Require mongoose
 const mongoose = require('mongoose')
 
+//User schema
 const userSchema = new mongoose.Schema(
 	{
 		email: {
@@ -24,4 +26,5 @@ const userSchema = new mongoose.Schema(
 	}
 )
 
+//Exporting User model
 module.exports = mongoose.model('User', userSchema)
