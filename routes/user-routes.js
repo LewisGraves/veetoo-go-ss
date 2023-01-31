@@ -23,10 +23,9 @@ router.post('/sign-up', (req, res, next) => {
 		)
 		// create user with provided email and hashed password
 		.then((user) => User.create(user))
-		// send the new user object back with status 201, but `hashedPassword`
-		// won't be sent because of the `transform` in the User model
+		// send the new user object back with status 201
 		.then((user) => res.status(201).json(user))
-		// pass any errors along to the error handler
+		// pass errors
 		.catch(next)
 })
 
@@ -41,7 +40,7 @@ router.post('/sign-in', (req, res, next) => {
 		// a token that we'll in turn send to the client.
 		.then((token) => res.json({ token }))
 		.catch(next)
-});
+})
 
 //export router
 module.exports = router
