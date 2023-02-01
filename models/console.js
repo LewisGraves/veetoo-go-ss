@@ -41,7 +41,7 @@ const consoleSchema = new Schema(
 			required: false,
 		},
 		working: {
-			type: Boolean,
+			type: String,
 			required: false,
 		},
 		games: [gameSchema]
