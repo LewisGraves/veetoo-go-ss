@@ -32,6 +32,7 @@ app.use(cors({ origin: `http://127.0.0.1:5500` }))
 // use express.json() to parse the body of the request and pass it to the requestLogger
 app.use(express.json())
 app.use(requestLogger)
+app.use(cors({ origin: process.env.CLIENT_ORIGIN || `http://localhost:3000` }))
 
 // Pass the routes to `app.use` for Express to use them
 app.use('/seed', consoleSeed)
